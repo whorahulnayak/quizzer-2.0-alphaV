@@ -72,7 +72,7 @@
 				<div class="box-wrapper">				
 					<div class="box box-border">
 						<div class="box-body">
-						<center> <h5 style="font-family: Noto Sans;">Login to </h5><h4 style="font-family: Noto Sans;">Admin Page</h4></center><br>
+						<center> <h5 >Login to </h5><h4 >Admin Page</h4></center><br>
 							<form method="post" action="admin.php" enctype="multipart/form-data">
 								<div class="form-group">
 									<label>Enter Your Email Id:</label>
