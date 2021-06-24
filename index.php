@@ -7,6 +7,9 @@
         <title>| Online Quiz System |</title>
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="shortcut icon" type="image/png" href="image/logo.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap" rel="stylesheet">
         <style type="text/css">
             body {
                 width: 100%;
