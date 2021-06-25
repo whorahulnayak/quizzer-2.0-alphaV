@@ -9,7 +9,7 @@
     {
       $demail=@$_GET['demail'];
       $result = mysqli_query($con,"DELETE FROM user WHERE email='$demail' ") or die('Error');
-      $r1 = mysqli_query($con,"DELETE FROM rank WHERE email='$demail' ") or die('Error');
+      // $r1 = mysqli_query($con,"DELETE FROM rank WHERE email='$demail' ") or die('Error');
       $r2 = mysqli_query($con,"DELETE FROM history WHERE email='$demail' ") or die('Error');
       header("location:dashboard.php?q=1");
     }
@@ -43,8 +43,9 @@
       $total = $_POST['total'];
       $sahi = $_POST['right'];
       $wrong = $_POST['wrong'];
+      $owner = $email;
       $id=uniqid();
-      $q3=mysqli_query($con,"INSERT INTO quiz VALUES  ('$id','$name' , '$sahi' , '$wrong','$total', NOW())");
+      $q3=mysqli_query($con,"INSERT INTO quiz VALUES  ('$id','$name' , '$sahi' , '$wrong','$total', NOW(),'$owner')");
       header("location:dashboard.php?q=4&step=2&eid=$id&n=$total");
     }
   }
@@ -152,21 +153,7 @@
       {
         $s=$row['score'];
       }
-      $q=mysqli_query($con,"SELECT * FROM rank WHERE email='$email'" );
-      //$rowcount=mysqli_num_rows($q);
-      if($q == false)
-      {
-        $q2=mysqli_query($con,"INSERT INTO rank VALUES('$email','$s',NOW())")or die('Error165');
-      }
-      else
-      {
-        while($row=mysqli_fetch_array($q) )
-        {
-          $sun=$row['score'];
-        }
-        $sun=$s+$sun;
-        $q=mysqli_query($con,"UPDATE `rank` SET `score`=$sun ,time=NOW() WHERE email= '$email'")or die('Error174');
-      }
+      
       header("location:welcome.php?q=result&eid=$eid");
     }
     else
@@ -186,16 +173,9 @@
       $s=$row['score'];
     }
     $q=mysqli_query($con,"DELETE FROM `history` WHERE eid='$eid' AND email='$email' " )or die('Error184');
-    $q=mysqli_query($con,"SELECT * FROM rank WHERE email='$email'" )or die('Error161');
-    while($row=mysqli_fetch_array($q) )
-    {
-      $sun=$row['score'];
-    }
-    $sun=$sun-$s;
-    $q=mysqli_query($con,"UPDATE `rank` SET `score`=$sun ,time=NOW() WHERE email= '$email'")or die('Error174');
+     
     header("location:welcome.php?q=quiz&step=2&eid=$eid&n=1&t=$t");
   }
 ?>
-
 
 

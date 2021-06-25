@@ -46,10 +46,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-left">
-            <li <?php if(@$_GET['q']==1) echo'class="active"'; ?> ><a href="welcome.php?q=1"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home<span class="sr-only">(current)</span></a></li>
             <li <?php if(@$_GET['q']==2) echo'class="active"'; ?>> <a href="welcome.php?q=2"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;History</a></li>
-            <li <?php if(@$_GET['q']==3) echo'class="active"'; ?>> <a href="welcome.php?q=3"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp;Ranking</a></li>
-            
+            <li <?php if(@$_GET['q']==3) echo'class="active"'; ?> ><a href="welcome.php?q=3"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Quizes<span class="sr-only">(current)</span></a></li>
+
         </ul>
         <ul class="nav navbar-nav navbar-right">
         <li <?php echo''; ?> > <a href="logout.php?q=welcome.php"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Log out</a></li>
@@ -65,9 +64,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <?php if(@$_GET['q']==1) 
+                <?php 
+                if(isset($_SESSION['key']))
                 {
-                    $result = mysqli_query($con,"SELECT * FROM quiz ORDER BY date DESC") or die('Error');
+
+                if(@$_GET['q']==1 && @$_GET['approved']==1) 
+                {
+                    $uid = $_POST['uid'];
+                    $result = mysqli_query($con,"SELECT * FROM quiz where eid = '$uid' ORDER BY date DESC") or die('Error');
                     echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
                     <tr><td><center><b>S.N.</b></center></td><td><center><b>Topic</b></center></td><td><center><b>Total question</b></center></td><td><center><b>Marks</center></b></td><td><center><b>Action</b></center></td></tr>';
                     $c=1;
@@ -88,6 +92,29 @@
                     }
                     $c=0;
                     echo '</table></div></div>';
+                }}?>
+
+                <?php if(@$_GET['q']==3) 
+                {
+                   
+                    echo '<div class="row"><span class="title1" style="margin-left:40%;font-size:30px;color:#fff;"><b>Enter Quiz Details</b></span><br /><br />
+                    <div class="col-md-3"></div><div class="col-md-6">   
+                    <form class="form-horizontal title1" name="form" action="welcome.php?q=1&approved=1"  method="POST">
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-md-12 control-label" for="name"></label>  
+                                <div class="col-md-12">
+                                    <input id="name" name="uid" placeholder="Enter Quiz Code" class="form-control input-md" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                    <label class="col-md-12 control-label" for=""></label>
+                                    <div class="col-md-12"> 
+                                        <input  type="submit" style="margin-left:45%" class="btn btn-primary" value="Submit" class="btn btn-primary"/>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form></div>';
                 }?>
 
                 <?php
@@ -170,28 +197,28 @@
                         echo'</table></div>';
                     }
 
-                    if(@$_GET['q']== 3) 
-                    {
-                        $q=mysqli_query($con,"SELECT * FROM rank ORDER BY score DESC " );
-                        echo  '<div class="panel title"><div class="table-responsive">
-                        <table class="table table-striped title1" >
-                        <tr style="color:red"><td><center><b>Rank</b></center></td><td><center><b>Name</b></center></td><td><center><b>Email</b></center></td><td><center><b>Score</b></center></td></tr>';
-                        $c=0;
-                        if($q == false) exit();
-                        while($row=mysqli_fetch_array($q))
-                        {
-                            $e=$row['email'];
-                            $s=$row['score'];
-                            $q12=mysqli_query($con,"SELECT * FROM user WHERE email='$e' " )or die('Error231');
-                            while($row=mysqli_fetch_array($q12) )
-                            {
-                                $name=$row['name'];
-                            }
-                            $c++;
-                            echo '<tr><td style="color:black"><center><b>'.$c.'</b></center></td><td><center>'.$name.'</center></td><td><center>'.$e.'</center></td><td><center>'.$s.'</center></td></tr>';
-                        }
-                        echo '</table></div></div>';
-                    }
+                    // if(@$_GET['q']== 3) 
+                    // {
+                    //     $q=mysqli_query($con,"SELECT * FROM rank ORDER BY score DESC " );
+                    //     echo  '<div class="panel title"><div class="table-responsive">
+                    //     <table class="table table-striped title1" >
+                    //     <tr style="color:red"><td><center><b>Rank</b></center></td><td><center><b>Name</b></center></td><td><center><b>Email</b></center></td><td><center><b>Score</b></center></td></tr>';
+                    //     $c=0;
+                    //     if($q == false) exit();
+                    //     while($row=mysqli_fetch_array($q))
+                    //     {
+                    //         $e=$row['email'];
+                    //         $s=$row['score'];
+                    //         $q12=mysqli_query($con,"SELECT * FROM user WHERE email='$e' " )or die('Error231');
+                    //         while($row=mysqli_fetch_array($q12) )
+                    //         {
+                    //             $name=$row['name'];
+                    //         }
+                    //         $c++;
+                    //         echo '<tr><td style="color:black"><center><b>'.$c.'</b></center></td><td><center>'.$name.'</center></td><td><center>'.$e.'</center></td><td><center>'.$s.'</center></td></tr>';
+                    //     }
+                    //     echo '</table></div></div>';
+                    // }
                 ?>
 </body>
 </html>

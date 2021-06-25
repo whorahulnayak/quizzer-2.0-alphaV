@@ -47,10 +47,10 @@
                 <ul class="nav navbar-nav navbar-left">
                     <li <?php if(@$_GET['q']==0) echo'class="active"'; ?>><a href="dashboard.php?q=0">Home<span class="sr-only">(current)</span></a></li>
                     <li <?php if(@$_GET['q']==1) echo'class="active"'; ?>><a href="dashboard.php?q=1">User</a></li>
-                    <li <?php if(@$_GET['q']==2) echo'class="active"'; ?>><a href="dashboard.php?q=2">Ranking</a></li>
+                    
                     <li class="dropdown <?php if(@$_GET['q']==4 || @$_GET['q']==5) echo'active"'; ?>">
                     <li><a href="dashboard.php?q=4">Add Quiz</a></li>
-                    <li><a href="dashboard.php?q=5">Remove Quiz</a></li>
+                    <li><a href="dashboard.php?q=5">My Quizes</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li <?php echo''; ?> > <a href="logout1.php?q=dashboard.php"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Log out</a></li>
@@ -225,16 +225,18 @@
                 <?php 
                     if(@$_GET['q']==5) 
                     {
-                        $result = mysqli_query($con,"SELECT * FROM quiz ORDER BY date DESC") or die('Error');
+                        $email = $_SESSION['email'];
+                        $result = mysqli_query($con,"SELECT * FROM quiz WHERE owned= '$email' ORDER BY date DESC") or die('Error');
                         echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
-                        <tr><td><center><b>S.N.</b></center></td><td><center><b>Topic</b></center></td><td><center><b>Total question</b></center></td><td><center><b>Marks</b></center></td><td><center><b>Action</b></center></td></tr>';
+                        <tr><td><center><b>S.N.</b></center></td><td><center><b>Topic</b></center></td><td><center><b>Total questions</b></center></td><td><center><b>Marks</b></center></td><td><center><b>Quiz ID</b></center></td><td><center><b>Action</b></center></td></tr>';
                         $c=1;
                         while($row = mysqli_fetch_array($result)) {
                             $title = $row['title'];
                             $total = $row['total'];
                             $sahi = $row['sahi'];
                             $eid = $row['eid'];
-                            echo '<tr><td><center>'.$c++.'</center></td><td><center>'.$title.'</center></td><td><center>'.$total.'</center></td><td><center>'.$sahi*$total.'</center></td>
+
+                            echo '<tr><td><center>'.$c++.'</center></td><td><center>'.$title.'</center></td><td><center>'.$total.'</center></td><td><center>'.$sahi*$total.'</center></td><td><center>'.$eid.'</center></td>
                             <td><center><b><a href="update.php?q=rmquiz&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:red;color:black"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Remove</b></span></a></b></center></td></tr>';
                         }
                         $c=0;

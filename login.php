@@ -33,7 +33,7 @@
 			$_SESSION['email']=$row[2];
 			$_SESSION['password']=$row[3];
 			$_SESSION['key'] = $row[1];
-			header('location: welcome.php?q=1'); 					
+			header('location: welcome.php?q=3'); 					
 		}
 	}
 ?>
