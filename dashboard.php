@@ -273,7 +273,7 @@
                        <tr>  
                           <td>'.$c.'</td>  
                           <td>'.$row["email"].'</td>  
-                         <td>'.$row["total"].'</td>  
+                         <td>'.$row["score"].'</td>  
                     
                        </tr>
                       ';
