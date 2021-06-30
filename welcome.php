@@ -20,6 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Welcome | Online Quiz System</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-16x16.png">
     <link  rel="stylesheet" href="css/bootstrap.min.css"/>
     <link  rel="stylesheet" href="css/bootstrap-theme.min.css"/>    
     <link rel="stylesheet" href="css/welcome.css">
@@ -120,6 +121,7 @@
                 <?php
                     if(@$_GET['q']== 'quiz' && @$_GET['step']== 2) 
                     {
+
                         $eid=@$_GET['eid'];
                         $sn=@$_GET['n'];
                         $total=@$_GET['t'];
@@ -141,6 +143,7 @@
                             $optionid=$row['optionid'];
                             echo'<input type="radio" name="ans" value="'.$optionid.'">&nbsp;'.$option.'<br /><br />';
                         }
+                        
                         echo'<br /><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>&nbsp;Submit</button></form></div>';
                     }
 
@@ -162,13 +165,7 @@
                                 <tr style="color:red"><td>Wrong Answer&nbsp;<span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></td><td>'.$w.'</td></tr>
                                 <tr style="color:#66CCFF"><td>Score&nbsp;<span class="glyphicon glyphicon-star" aria-hidden="true"></span></td><td>'.$s.'</td></tr>';
                         }
-                        // $q=mysqli_query($con,"SELECT * FROM rank WHERE  email='$email' " )or die('Error157');
-                        // while($row=mysqli_fetch_array($q) )
-                        // {
-                        //     $s=$row['score'];
-                        //     echo '<tr style="color:#990000"><td>Overall Score&nbsp;<span class="glyphicon glyphicon-stats" aria-hidden="true"></span></td><td>'.$s.'</td></tr>';
-                        // }
-                        // echo '</table></div>';
+                        
                     }
                 ?>
 
@@ -197,28 +194,7 @@
                         echo'</table></div>';
                     }
 
-                    // if(@$_GET['q']== 3) 
-                    // {
-                    //     $q=mysqli_query($con,"SELECT * FROM rank ORDER BY score DESC " );
-                    //     echo  '<div class="panel title"><div class="table-responsive">
-                    //     <table class="table table-striped title1" >
-                    //     <tr style="color:red"><td><center><b>Rank</b></center></td><td><center><b>Name</b></center></td><td><center><b>Email</b></center></td><td><center><b>Score</b></center></td></tr>';
-                    //     $c=0;
-                    //     if($q == false) exit();
-                    //     while($row=mysqli_fetch_array($q))
-                    //     {
-                    //         $e=$row['email'];
-                    //         $s=$row['score'];
-                    //         $q12=mysqli_query($con,"SELECT * FROM user WHERE email='$e' " )or die('Error231');
-                    //         while($row=mysqli_fetch_array($q12) )
-                    //         {
-                    //             $name=$row['name'];
-                    //         }
-                    //         $c++;
-                    //         echo '<tr><td style="color:black"><center><b>'.$c.'</b></center></td><td><center>'.$name.'</center></td><td><center>'.$e.'</center></td><td><center>'.$s.'</center></td></tr>';
-                    //     }
-                    //     echo '</table></div></div>';
-                    // }
+                   
                 ?>
 </body>
 </html>
