@@ -1,7 +1,7 @@
 * {box-sizing: border-box;}
 
 body { 
-  background-color: #3F3D56;
+  background-color: #2F2E41;
   margin: 0;
   font-family: 'Poppins', sans-serif;
 }
@@ -9,11 +9,11 @@ body {
 .header {
   text-align: center;
   overflow: hidden;
-  background-color:#3F3D56 ;
+  background-color:#2F2E41 ;
   padding: 20px 10px;
   text-decoration: none;
 }
-/* #0b9164 */
+/* #0b9164  #3F3D56 #2F2E41*/
 .header a, .header .logo {
   color: rgb(255, 255, 255);
   text-align: center;
@@ -23,7 +23,7 @@ body {
   line-height: 10px;
   border-radius: 4px;
 }
-
+/* color #06CD99 */
 .header .logo {
   color:#fff;
   font-size: 25px;
@@ -48,3 +48,4 @@ body {
   padding:20px;
   font: 15px "Noto Sans";
   }
+

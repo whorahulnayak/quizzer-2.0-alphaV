@@ -98,7 +98,7 @@
                 <?php if(@$_GET['q']==3) 
                 {
                    
-                    echo '<div class="row"><span class="title1" style="margin-left:40%;font-size:30px;color:#fff;"><b>Enter Quiz Details</b></span><br /><br />
+                    echo '<div class="row"><span class="title1" style="margin-left:40%;font-size:30px;color:#06CD99;"><b>Enter Quiz Details</b></span><br /><br />
                     <div class="col-md-3"></div><div class="col-md-6">   
                     <form class="form-horizontal title1" name="form" action="welcome.php?q=1&approved=1"  method="POST">
                         <fieldset>
@@ -111,7 +111,7 @@
                             <div class="form-group">
                                     <label class="col-md-12 control-label" for=""></label>
                                     <div class="col-md-12"> 
-                                        <input  type="submit" style="margin-left:45%" class="btn btn-primary" value="Submit" class="btn btn-primary"/>
+                                        <input  type="submit" style="margin-left:45%" class="btn btn-primary" value="Submit" />
                                     </div>
                                 </div>
                             </fieldset>
