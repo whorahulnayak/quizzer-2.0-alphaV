@@ -19,7 +19,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Welcome | Online Quiz System</title>
+    <title>Quizzer</title>
     <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-16x16.png">
     <link  rel="stylesheet" href="css/bootstrap.min.css"/>
     <link  rel="stylesheet" href="css/bootstrap-theme.min.css"/>    
@@ -41,7 +41,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-        <a class="navbar-brand" href="#"><b>Online Quiz System</b></a>
+        <a class="navbar-brand" href="#"><b>Quizzer</b></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
