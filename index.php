@@ -1,40 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>| Online Quiz System |</title>
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <link rel="shortcut icon" type="image/png" href="image/logo.png" />
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap" rel="stylesheet">
-        <style type="text/css">
-            body {
-                width: 100%;
-                background: url(image/book.png) ;
-                background-position: center center;
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-size: cover;
-            }
-        </style>
-    </head>
-    <body>
-        <center>
-            <div class="intro">
-                <h1> online quiz system </h1>
-                <!-- landing page -->
-                <h3>Student Login</h3>
-                <a href="login.php" class="btn"> login </a> &emsp;
-                <a href="register.php" class="btn"> register </a>
-                <!-- create registration for admin -->
-                <h3>Admin Login</h3>
-                <a href="admin.php" class="btn"> login </a> &emsp;
-                <a href="register1.php" class="btn"> register </a>
-                <h2> Good &nbsp;Luck. </h2>
-            </div>
-        </center>
-    </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/index.css" />
+		<title>Welcome</title>
+	</head>
+	<body>
+		<div class="parent">
+			<div class="child1 child-side">
+				<img src="image/avatar.svg" class="dp" />
+				<h2>Faculty</h2>
+				<input type="submit" class="btn1" value="Login" onclick="window.location.href = 'admin.php';"/>
+				<input type="submit" class="btn1" value="Sign Up" onclick="window.location.href = 'register1.php';" />
+			</div>
+			<div class="child2 child">
+				<!-- <h1 class="title">Quizzr v2.0</h1> -->
+				<img src="image/undraw_road_sign_mfpo.svg" alt="" />
+			</div>
+			<div class="child3 child-side">
+				<img src="image/avatar.svg" class="dp" />
+				<h2>Student</h2>
+				<input type="submit" class="btn2" value="Login" onclick="window.location.href = 'login.php';" />
+				<input type="submit" class="btn2" value="Sign Up"onclick="window.location.href = 'register.php';" />
+			</div>
+		</div>
+	</body>
 </html>
