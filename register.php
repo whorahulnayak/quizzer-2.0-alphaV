@@ -16,9 +16,7 @@
 		$password = stripslashes($password);
 		$password = addslashes($password);
 
-		$college = $_POST['college'];
-		$college = stripslashes($college);
-		$college = addslashes($college);
+		
 		$str="SELECT email from user WHERE email='$email'";
 		$result=mysqli_query($con,$str);
 		
@@ -82,10 +80,7 @@
 									<label>Enter Your Password:</label>
 									<input type="password" name="password" class="form-control" required />
                                 </div>
-								<div class="form-group">
-									<label>Enter Your College Name:</label>
-									<input type="text" name="college" class="form-control" required />
-								</div>
+								
                                 
 								<div class="form-group text-right">
 									<button class="btn btn-primary btn-block" name="submit">Register</button>

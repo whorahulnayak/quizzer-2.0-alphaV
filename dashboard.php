@@ -81,7 +81,6 @@
                         {
                             $name = $row['name'];
                             $email = $row['email'];
-                            $college = $row['college'];
                             echo '<tr><td><center>'.$c++.'</center></td><td><center>'.$name.'</center></td><td><center>'.$email.'</center></td><td><center><a title="Delete User" href="update.php?demail='.$email.'"><b><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></b></a></center></td></tr>';
                         }
                         $c=0;
