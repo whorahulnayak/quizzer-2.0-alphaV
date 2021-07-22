@@ -75,14 +75,14 @@
                     {
                         $result = mysqli_query($con,"SELECT * FROM user") or die('Error');
                         echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
-                        <tr><td><center><b>S.N.</b></center></td><td><center><b>Name</b></center></td><td><center><b>College</b></center></td><td><center><b>Email</b></center></td><td><center><b>Action</b></center></td></tr>';
+                        <tr><td><center><b>S.N.</b></center></td><td><center><b>Name</b></center></td><td><center><b>Email</b></center></td><td><center><b>Action</b></center></td></tr>';
                         $c=1;
                         while($row = mysqli_fetch_array($result)) 
                         {
                             $name = $row['name'];
                             $email = $row['email'];
                             $college = $row['college'];
-                            echo '<tr><td><center>'.$c++.'</center></td><td><center>'.$name.'</center></td><td><center>'.$college.'</center></td><td><center>'.$email.'</center></td><td><center><a title="Delete User" href="update.php?demail='.$email.'"><b><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></b></a></center></td></tr>';
+                            echo '<tr><td><center>'.$c++.'</center></td><td><center>'.$name.'</center></td><td><center>'.$email.'</center></td><td><center><a title="Delete User" href="update.php?demail='.$email.'"><b><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></b></a></center></td></tr>';
                         }
                         $c=0;
                         echo '</table></div></div>';

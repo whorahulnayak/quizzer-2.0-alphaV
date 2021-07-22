@@ -27,7 +27,7 @@
         }
 		else
 		{
-            $str="insert into user set name='$name',email='$email',password='$password',college='$college'";
+            $str="insert into user set name='$name',email='$email',password='$password'";
 			if((mysqli_query($con,$str)))	
 			echo "<center><h3><script>alert('Congrats.. You have successfully registered !!');</script></h3></center>";
 			header('location: welcome.php?q=1');
