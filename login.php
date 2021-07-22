@@ -41,60 +41,56 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>Login | Online Quiz System</title>
-		<link rel="stylesheet" href="scripts/bootstrap/bootstrap.min.css">
-		<link rel="stylesheet" href="scripts/ionicons/css/ionicons.min.css">
-		<link rel="stylesheet" href="css/form.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap" rel="stylesheet">
-		<style type="text/css">
-            body{
-                  width: 100%;
-                  background: url(image/book.png) ;
-                  background-position: center center;
-                  background-repeat: no-repeat;
-                  background-attachment: fixed;
-                  background-size: cover;
-                }
-          </style>
+		<title>Student Login</title>
+		<link rel="stylesheet" type="text/css" href="css/login.css" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
-
 	<body>
-		<section class="login first grey">
-			<div class="container">
-				<div class="box-wrapper">				
-					<div class="box box-border">
-						<div class="box-body">
-						<center> <h5 >Login to </h5><h4 >Online Quiz System</h4></center><br>
-							<form method="post" action="login.php" enctype="multipart/form-data">
-								<div class="form-group">
-									<label>Enter Your Email Id:</label>
-									<input type="email" name="email" class="form-control">
-								</div>
-								<div class="form-group">
-									<label class="fw">Enter Your Password:
-										<a href="javascript:void(0)" class="pull-right">Forgot Password?</a>
-									</label>
-									<input type="password" name="password" class="form-control">
-								</div> 
-								<div class="form-group text-right">
-									<button class="btn btn-primary btn-block" name="submit">Login</button>
-								</div>
-								<div class="form-group text-center">
-									<span class="text-muted">Don't have an account?</span> <a href="register.php">Register</a> Here..
-								</div>
-							</form>
+		<img class="wave" src="image/wave.png" />
+		<div class="container">
+			<div class="img">
+				<img src="image/bg.svg" />
+			</div>
+			<div class="login-content">
+			<form method="post" action="login.php" enctype="multipart/form-data">
+					<img src="image/avatar.svg" />
+					<h2 class="title">Student Login</h2>
+					
+					<div class="input-div one">
+						<div class="i">
+							<i class="fas fa-user"></i>
+						</div>
+						<div class="div">
+							<h5>email</h5>
+							<input type="email" name="email" class="input" required/>
 						</div>
 					</div>
-				</div>
-			</div>
-		</section>
+					<div class="input-div pass">
+						<div class="i">
+							<i class="fas fa-lock"></i>
+						</div>
+						<div class="div">
+							<h5>Password</h5>
+							<input type="password" name="password" class="input" required/>
+						</div>
+					</div>
+			
 
-		<script src="js/jquery.js"></script>
-		<script src="scripts/bootstrap/bootstrap.min.js"></script>
+					<div class="form-group text-right">
+						<button class="btn btn-primary btn-block" name="submit">Login</button>
+					</div>
+					<div class="form-group text-center">
+						Don't have an account?<a href="register.php">Register</a> Here..
+					</div>
+
+				</form>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/main.js"></script>
 	</body>
 </html>
