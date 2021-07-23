@@ -5,6 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="css/index.css" />
+		<link rel="icon" type="image/png" sizes="32x32" href="image/favicon-16x16.png">
 		<title>Welcome</title>
 	</head>
 	<body>
@@ -17,7 +18,7 @@
 			</div>
 			<div class="child2 child">
 				<!-- <h1 class="title">Quizzr v2.0</h1> -->
-				<img src="image/undraw_road_sign_mfpo.svg" alt="" />
+				<img src="image/undraw_road_sign_mfpo.svg" class="hide" alt="" />
 			</div>
 			<div class="child3 child-side">
 				<img src="image/avatar.svg" class="dp" />
