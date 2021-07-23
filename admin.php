@@ -89,7 +89,7 @@
 						<button class="btn btn-primary btn-block" name="submit">Login</button>
 					</div>
 					<div class="form-group text-center">
-						Don't have an account?<a href="register.php">Register</a> Here..
+						Don't have an account?<a href="register.php">Register Here</a>
 					</div>
 
 				</form>

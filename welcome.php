@@ -13,64 +13,81 @@
     }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Quizzer</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-16x16.png">
-    <link  rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link  rel="stylesheet" href="css/bootstrap-theme.min.css"/>    
-    <link rel="stylesheet" href="css/welcome.css">
-    <link  rel="stylesheet" href="css/font.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap" rel="stylesheet">
-    <script src="js/jquery.js" type="text/javascript"></script>
-    <script src="js/bootstrap.min.js"  type="text/javascript"></script>
-</head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+			integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+			crossorigin="anonymous"
+		/>
+	
+		<link rel="stylesheet" href="css/hamburgers.css" />
+		<link rel="stylesheet" href="css/student_home.css" />
+
+		<title>Quizzer</title>
+	</head>
 <body>
-    <nav class="navbar navbar-default title1">
-        <div class="container-fluid">
-            <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        <a class="navbar-brand" href="#"><b>Quizzer</b></a>
-        </div>
+    <nav
+			class="
+				navbar navbar-expand-lg navbar-dark
+				navcolor
+				fixed-top
+				py-0 py-md-1 py-lg-2
+			"
+		>
+			<!-- Title and Logo -->
+			<a class="navbar-brand" href="#">
+				<img
+					src="image/atom.svg"
+					width="30"
+					height="30"
+					class="d-inline-block align-top"
+					alt=""
+					loading="lazy"
+				/>
+				<span id="brand">Quizzer</span>
+			</a>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-left">
-            <li <?php if(@$_GET['q']==2) echo'class="active"'; ?>> <a href="welcome.php?q=2"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;History</a></li>
-            <li <?php if(@$_GET['q']==3) echo'class="active"'; ?> ><a href="welcome.php?q=3"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Quizes<span class="sr-only">(current)</span></a></li>
+			
 
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-        <li <?php echo''; ?> > <a href="logout.php?q=welcome.php"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Log out</a></li>
-        </ul>
-        
-            
-           
-       
-        </div>
-    </div>
-    </nav>
-    <br><br>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <?php 
+			<button
+				class="hamburger hamburger--emphatic is-valid navbar-toggler"
+				type="button"
+				data-toggle="collapse"
+				data-target="#expandme"
+			>
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</button>
+			<!-- Categories -->
+			<div class="collapse navbar-collapse" id="expandme">
+				<div class="navbar-nav">
+					<a class="nav-item nav-link active" href="welcome.php?q=3">Home</a>
+					<a class="nav-item nav-link" href="welcome.php?q=2">History</a>
+				</div>
+			</div>
+		</nav>
+
+        <?php 
                 if(isset($_SESSION['key']))
                 {
 
                 if(@$_GET['q']==1 && @$_GET['approved']==1) 
                 {
+                    
                     $uid = $_POST['uid'];
                     $result = mysqli_query($con,"SELECT * FROM quiz where eid = '$uid' ORDER BY date DESC") or die('Error');
                     echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
@@ -95,27 +112,31 @@
                     echo '</table></div></div>';
                 }}?>
 
+<!-- HOME PAGE -->
                 <?php if(@$_GET['q']==3) 
                 {
                    
-                    echo '<div class="row"><span class="title1" style="margin-left:40%;font-size:30px;color:#06CD99;"><b>Enter Quiz Details</b></span><br /><br />
-                    <div class="col-md-3"></div><div class="col-md-6">   
-                    <form class="form-horizontal title1" name="form" action="welcome.php?q=1&approved=1"  method="POST">
-                        <fieldset>
-                            <div class="form-group">
-                                <label class="col-md-12 control-label" for="name"></label>  
-                                <div class="col-md-12">
-                                    <input id="name" name="uid" placeholder="Enter Quiz Code" class="form-control input-md" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                    <label class="col-md-12 control-label" for=""></label>
-                                    <div class="col-md-12"> 
-                                        <input  type="submit" style="margin-left:45%" class="btn btn-primary" value="Submit" />
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </form></div>';
+                    echo '<div class="parent">
+			<div class="child child1">
+				<h2>Enter your quiz code:</h2>
+				<br/>
+				<form action="welcome.php?q=1&approved=1" name="form" method="POST">
+				<div class="input-group input-group-lg">
+					<input type="text" name="uid" class="form-control" />
+					
+					<input type="submit" value="start quiz" class="btn1">
+				</div>
+				</form>
+			</div>
+
+			<div class="child child3">
+				<img
+					class="buddy_image"
+					src="image/undraw_online_test_gba7.svg"
+					alt=""
+				/>
+			</div>
+		</div>';
                 }?>
 
                 <?php
@@ -169,7 +190,7 @@
                     }
                 ?>
 
-                <?php
+<?php
                     if(@$_GET['q']== 2) 
                     {
                         $q=mysqli_query($con,"SELECT * FROM history WHERE email='$email' ORDER BY date DESC " )or die('Error197');
@@ -196,5 +217,57 @@
 
                    
                 ?>
+
+<script>
+			// Look for .hamburger
+			var hamburger = document.querySelector(".hamburger");
+			// On click
+			hamburger.addEventListener("click", function () {
+				// Toggle class "is-active"
+				hamburger.classList.toggle("is-active");
+				// Do something else, like open/close menu
+			});
+			var svg = document.querySelector(".navbar-brand");
+			var brand = document.querySelector("#brand");
+
+			console.log(scroll);
+			var scr = window.addEventListener("scroll", function () {
+				var scroll = window.scrollY;
+				if (scroll != 0) {
+					brand.classList.add("disappear");
+				} else {
+					brand.classList.remove("disappear");
+				}
+			});
+			$(window).scroll(function () {
+				var scrollTop = $(this).scrollTop();
+				$("#brand").css({
+					opacity: function () {
+						var elementHeight = $(this).height();
+						return 1 - (elementHeight - scrollTop) / elementHeight;
+						// adding transition here
+					},
+				});
+			});
+		</script>
+
+		<script
+			script
+			src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+			crossorigin="anonymous"
+		></script>
+		<script
+			script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+			integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+			crossorigin="anonymous"
+		></script>
 </body>
 </html>
