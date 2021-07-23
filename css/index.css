@@ -34,6 +34,8 @@ body {
 	flex-grow: 1;
 }
 
+
+
 .child3 {
 	width: 33.33%;
 	/* height: 200px; */
@@ -109,6 +111,12 @@ h2 {
 .dp {
 	height: 100px;
 	/* filter: drop-shadow(0 2px 0.5rem rgb(197, 197, 197)); */
+}
+@media screen and (max-width:800px)
+{
+	.hide{
+		display:none;
+	}
 }
 
 /* .title {

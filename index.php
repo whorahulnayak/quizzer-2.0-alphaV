@@ -18,7 +18,7 @@
 			</div>
 			<div class="child2 child">
 				<!-- <h1 class="title">Quizzr v2.0</h1> -->
-				<img src="image/undraw_road_sign_mfpo.svg" alt="" />
+				<img src="image/undraw_road_sign_mfpo.svg" class="hide" alt="" />
 			</div>
 			<div class="child3 child-side">
 				<img src="image/avatar.svg" class="dp" />
