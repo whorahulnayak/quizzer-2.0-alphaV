@@ -23,37 +23,26 @@
     <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-16x16.png">
     <link  rel="stylesheet" href="css/bootstrap.min.css"/>
     <link  rel="stylesheet" href="css/bootstrap-theme.min.css"/>    
-    <!-- <link rel="stylesheet" href="css/welcome.css"> -->
+    <link rel="stylesheet" href="css/welcome.css">
     <link  rel="stylesheet" href="css/font.css">
-    <link rel="stylesheet" href="css/student_home.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap" rel="stylesheet">
     <script src="js/jquery.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js"  type="text/javascript"></script>
 </head>
-<body id="my-scrollbar">
-		<!-- Navbar Start -->
-		<nav
-			class="
-				navbar navbar-expand-lg navbar-dark
-				navcolor
-				fixed-top
-				py-0 py-md-1 py-lg-2
-			"
-		>
-			<!-- Title and Logo -->
-			<a class="navbar-brand" href="#">
-				<img
-					src="image/atom.svg"
-					width="30"
-					height="30"
-					class="d-inline-block align-top"
-					alt=""
-					loading="lazy"
-				/>
-				<span id="brand">Quizzer</span>
-			</a>
+<body>
+    <nav class="navbar navbar-default title1">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        <a class="navbar-brand" href="#"><b>Quizzer</b></a>
+        </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -105,30 +94,28 @@
                     $c=0;
                     echo '</table></div></div>';
                 }}?>
-            <!-- new g-meet like layout -->
+            <!-- new  -->
                 <?php if(@$_GET['q']==3) 
                 {
                    
-                    echo '<div class="parent">
-                    <div class="child child1">
-                        <h2>Enter your quiz code:</h2>
-                        <br/>
-                        <form action="welcome.php?q=1&approved=1"  method="POST">
-                        <div class="input-group input-group-lg">
-                            <input type="text" class="form-control" />
-                            <input class="btn1" type="submit" value="start quiz">
-                        </div>
-                    </form>
-                    </div>
-        
-                    <div class="child child3">
-                        <img
-                            class="buddy_image"
-                            src="image/undraw_online_test_gba7.svg"
-                            alt=""
-                        />
-                    </div>
-                </div>';
+                    echo '<div class="row"><span class="title1" style="margin-left:40%;font-size:30px;color:#06CD99;"><b>Enter Quiz Details</b></span><br /><br />
+                    <div class="col-md-3"></div><div class="col-md-6">   
+                    <form class="form-horizontal title1" name="form" action="welcome.php?q=1&approved=1"  method="POST">
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-md-12 control-label" for="name"></label>  
+                                <div class="col-md-12">
+                                    <input id="name" name="uid" placeholder="Enter Quiz Code" class="form-control input-md" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                    <label class="col-md-12 control-label" for=""></label>
+                                    <div class="col-md-12"> 
+                                        <input  type="submit" style="margin-left:45%" class="btn btn-primary" value="Submit" />
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form></div>';
                 }?>
 
                 <?php
