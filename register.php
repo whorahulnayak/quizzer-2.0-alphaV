@@ -39,6 +39,7 @@
 <html>
 	<head>
 		<title>Student Signup</title>
+		<link rel="icon" type="image/png" sizes="32x32" href="image/favicon-16x16.png">
 		<link rel="stylesheet" type="text/css" href="css/login.css" />
 		<link
 			href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap"
