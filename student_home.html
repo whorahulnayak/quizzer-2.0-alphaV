@@ -106,11 +106,13 @@ session_start();
 		<div class="parent">
 			<div class="child child1">
 				<h2>Enter your quiz code:</h2>
-				<br />
+				<br/>
+				<form action="welcome.php?q=1&approved=1"  method="POST">
 				<div class="input-group input-group-lg">
 					<input type="text" class="form-control" />
-					<button class="btn1" type="button">Start Quiz</button>
+					<input class="btn1" type="submit" value="start quiz">
 				</div>
+			</form>
 			</div>
 
 			<div class="child child3">
