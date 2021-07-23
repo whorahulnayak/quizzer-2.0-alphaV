@@ -94,7 +94,7 @@
                     $c=0;
                     echo '</table></div></div>';
                 }}?>
-            <!-- new  -->
+
                 <?php if(@$_GET['q']==3) 
                 {
                    
