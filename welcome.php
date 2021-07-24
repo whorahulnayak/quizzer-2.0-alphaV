@@ -90,8 +90,33 @@
                     
                     $uid = $_POST['uid'];
                     $result = mysqli_query($con,"SELECT * FROM quiz where eid = '$uid' ORDER BY date DESC") or die('Error');
-                    echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
-                    <tr><td><center><b>S.N.</b></center></td><td><center><b>Topic</b></center></td><td><center><b>Total question</b></center></td><td><center><b>Marks</center></b></td><td><center><b>Action</b></center></td></tr>';
+                    echo  '<div
+			class="
+				col-sm-8
+				container-fluid
+				row
+				mx-auto
+				justify-content-center
+				text-center
+				parent2
+			"
+		>
+			<div class="cardn lboard">
+				<nav class="ladder-nav">
+					<div class="ladder-title">
+						<h3>History</h3>
+					</div>
+				</nav>
+				<table id="rankings" class="leaderboard-results" width="100%">
+					<thead>
+						<tr>
+							<th>S.N.</th>
+							<th>Topic</th>
+							<th>Total Questions</th>
+							<th>Marks</th>
+							<th>Action</th>
+						</tr>
+					</thead>';
                     $c=1;
                     while($row = mysqli_fetch_array($result)) {
                         $title = $row['title'];
@@ -101,11 +126,11 @@
                     $q12=mysqli_query($con,"SELECT score FROM history WHERE eid='$eid' AND email='$email'" )or die('Error98');
                     $rowcount=mysqli_num_rows($q12);	
                     if($rowcount == 0){
-                        echo '<tr><td><center>'.$c++.'</center></td><td><center>'.$title.'</center></td><td><center>'.$total.'</center></td><td><center>'.$sahi*$total.'</center></td><td><center><b><a href="welcome.php?q=quiz&step=2&eid='.$eid.'&n=1&t='.$total.'" class="btn sub1" style="color:black;margin:0px;background:#1de9b6"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Start</b></span></a></b></center></td></tr>';
+                        echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td><b><a href="welcome.php?q=quiz&step=2&eid='.$eid.'&n=1&t='.$total.'" class="btn sub1" style="color:black;margin:0px;background:#1de9b6"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Start</b></span></a></b></td></tr>';
                     }
                     else
                     {
-                    echo '<tr style="color:#99cc32"><td><center>'.$c++.'</center></td><td><center>'.$title.'&nbsp;<span title="This quiz is already solve by you" class="glyphicon glyphicon-ok" aria-hidden="true"></span></center></td><td><center>'.$total.'</center></td><td><center>'.$sahi*$total.'</center></td><td><center><b><a href="update.php?q=quizre&step=25&eid='.$eid.'&n=1&t='.$total.'" class="pull-right btn sub1" style="color:black;margin:0px;background:red"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Restart</b></span></a></b></center></td></tr>';
+                    echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td><b><a href="update.php?q=quizre&step=25&eid='.$eid.'&n=1&t='.$total.'" class><span><b>Resthttart</b></span></a></b></td></tr>';
                     }
                     }
                     $c=0;
