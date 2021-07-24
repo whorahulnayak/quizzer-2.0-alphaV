@@ -28,10 +28,10 @@
 		{
 			$_SESSION['logged']=$email;
 			$row=mysqli_fetch_array($result);
-			$_SESSION['name']=$row[1];
-			$_SESSION['id']=$row[0];
-			$_SESSION['email']=$row[2];
-			$_SESSION['password']=$row[3];
+			$_SESSION['name']=$row[0];
+			// $_SESSION['id']=$row[0];
+			$_SESSION['email']=$row[1];
+			$_SESSION['password']=$row[2];
 			$_SESSION['key'] = $row[1];
 			header('location: welcome.php?q=3'); 					
 		}

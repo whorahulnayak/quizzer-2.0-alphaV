@@ -9,6 +9,7 @@
     {
         $name = $_SESSION['name'];
         $email = $_SESSION['email'];
+		// echo $email;
         include_once 'database.php';
     }
 ?>
