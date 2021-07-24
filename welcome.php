@@ -75,8 +75,8 @@
 			<!-- Categories -->
 			<div class="collapse navbar-collapse" id="expandme">
 				<div class="navbar-nav">
-					<a class="nav-item nav-link active" href="welcome.php?q=3">Home</a>
-					<a class="nav-item nav-link" href="welcome.php?q=2">History</a>
+					<li <?php if(@$_GET['q']==3) echo'class="active"'; ?>><a class="nav-item nav-link active" href="welcome.php?q=3">Home</a></li>
+					<li <?php if(@$_GET['q']==2) echo'class="active"'; ?>><a class="nav-item nav-link" href="welcome.php?q=2">History</a></li>
 				    <a href="logout.php?q=welcome.php" class="nav-item nav-link ">
 					<i class="fas fa-sign-out-alt"></i>Log out</a>
 				</div>
@@ -87,6 +87,7 @@
                 if(isset($_SESSION['key']))
                 {
 
+// After pressing start quiz
                 if(@$_GET['q']==1 && @$_GET['approved']==1) 
                 {
                     
@@ -114,7 +115,7 @@
 										<tr>
 											<th>S.N.</th>
 											<th>Topic</th>
-											<th>Total Questions</th>
+											<th>Total </th>
 											<th>Marks</th>
 											<th>Action</th>
 										</tr>
@@ -128,11 +129,11 @@
                     $q12=mysqli_query($con,"SELECT score FROM history WHERE eid='$eid' AND email='$email'" )or die('Error98');
                     $rowcount=mysqli_num_rows($q12);	
                     if($rowcount == 0){
-                        echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td><b><a href="welcome.php?q=quiz&step=2&eid='.$eid.'&n=1&t='.$total.'" class="btn sub1" style="color:black;margin:0px;background:#1de9b6"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Start</b></span></a></b></td></tr>';
+                        echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td><b><a href="welcome.php?q=quiz&step=2&eid='.$eid.'&n=1&t='.$total.'" class="btn sub1" style= "background:#16FFBA">Start</b></a></b></td></tr>';
                     }
                     else
                     {
-                    echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td><b><a href="update.php?q=quizre&step=25&eid='.$eid.'&n=1&t='.$total.'" class><span><b>Resthttart</b></span></a></b></td></tr>';
+                    echo '<tr><td>'.$c++.'</td><td>'.$title.'</td><td>'.$total.'</td><td>'.$sahi*$total.'</td><td><b><a href="update.php?q=quizre&step=25&eid='.$eid.'&n=1&t='.$total.'" class="btn sub1" style="background: #F03156 " ><b>Restart</b></a></b></td></tr>';
                     }
                     }
                     $c=0;
@@ -150,7 +151,6 @@
 								<form action="welcome.php?q=1&approved=1" name="form" method="POST">
 								<div class="input-group input-group-lg">
 									<input type="text" name="uid" class="form-control" />
-									
 									<input type="submit" value="start quiz" class="btn1">
 								</div>
 								</form>
@@ -166,6 +166,8 @@
 						</div>';
                 }?>
 
+
+<!-- Quiz -->
                 <?php
                     if(@$_GET['q']== 'quiz' && @$_GET['step']== 2) 
                     {
@@ -174,12 +176,13 @@
                         $sn=@$_GET['n'];
                         $total=@$_GET['t'];
                         $q=mysqli_query($con,"SELECT * FROM questions WHERE eid='$eid' AND sn='$sn' " );
-                        echo '<div class="panel" style="margin:5%">';
+                        echo '<div id="container" class="container-fluid row mx-auto justify-content-center">
+      							  <div class="col-sm-11 col-md-10 col-lg-6">';
                         while($row=mysqli_fetch_array($q) )
                         {
                             $qns=$row['qns'];
                             $qid=$row['qid'];
-                            echo '<b>Question &nbsp;'.$sn.'&nbsp;::<br /><br />'.$qns.'</b><br /><br />';
+                            echo '<div id="question"><h1 class="question">Question '.$sn.':</h1><h2 class="question-green">'.$qns.'</h2><ul>';
                         }
                         $q=mysqli_query($con,"SELECT * FROM options WHERE qid='$qid' " );
                         echo '<form action="update.php?q=quiz&step=2&eid='.$eid.'&n='.$sn.'&t='.$total.'&qid='.$qid.'" method="POST"  class="form-horizontal">
@@ -189,10 +192,11 @@
                         {
                             $option=$row['option'];
                             $optionid=$row['optionid'];
-                            echo'<input type="radio" name="ans" value="'.$optionid.'">&nbsp;'.$option.'<br /><br />';
+                            echo'<li class="choice-container">
+								<input type="radio" name="ans" value="'.$optionid.'">'.$option.'</li>';
                         }
                         
-                        echo'<br /><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>&nbsp;Submit</button></form></div>';
+                        echo'</ul><button type="submit" class="btn3 btn-primary">Next</button></form></div></div>';
                     }
 
                     if(@$_GET['q']== 'result' && @$_GET['eid']) 
@@ -217,13 +221,40 @@
                     }
                 ?>
 
+<!-- History -->
+
 <?php
                     if(@$_GET['q']== 2) 
                     {
                         $q=mysqli_query($con,"SELECT * FROM history WHERE email='$email' ORDER BY date DESC " )or die('Error197');
-                        echo  '<div class="panel title">
-                        <table class="table table-striped title1" >
-                        <tr style="color:black;"><td><center><b>S.N.</b></center></td><td><center><b>Quiz</b></center></td><td><center><b>Question Solved</b></center></td><td><center><b>Right</b></center></td><td><center><b>Wrong<b></center></td><td><center><b>Score</b></center></td>';
+                        echo  '<div
+							class="
+								col-sm-8
+								container-fluid
+								row
+								mx-auto
+								justify-content-center
+								text-center
+								parent2
+							"
+						>
+							<div class="cardn lboard">
+								<nav class="ladder-nav">
+									<div class="ladder-title">
+										<h3>History</h3>
+									</div>
+								</nav>
+								<table id="rankings" class="leaderboard-results" width="100%">
+									<thead>
+										<tr>
+											<th>S.N.</th>
+											<th>Quiz</th>
+											<th>Questions</th>
+											<th>Right</th>
+											<th>Wrong</th>
+											<th>Score</th>
+										</tr>
+									</thead>';
                         $c=0;
                         while($row=mysqli_fetch_array($q) )
                         {
@@ -237,7 +268,7 @@
                         while($row=mysqli_fetch_array($q23) )
                         {  $title=$row['title'];  }
                         $c++;
-                        echo '<tr><td><center>'.$c.'</center></td><td><center>'.$title.'</center></td><td><center>'.$qa.'</center></td><td><center>'.$r.'</center></td><td><center>'.$w.'</center></td><td><center>'.$s.'</center></td></tr>';
+                        echo '<tr><td>'.$c.'</td><td>'.$title.'</td><td>'.$qa.'</td><td>'.$r.'</td><td>'.$w.'</td><td>'.$s.'</td></tr>';
                         }
                         echo'</table></div>';
                     }
