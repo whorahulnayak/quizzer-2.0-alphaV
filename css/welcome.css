@@ -13,6 +13,11 @@ body {
   padding: 20px 10px;
   text-decoration: none;
 }
+h1{
+  color:aqua;
+  /* font-family: 'VALORANT', sans-serif; */
+}
+   
 /* #0b9164  #3F3D56 #2F2E41*/
 .header a, .header .logo {
   color: rgb(255, 255, 255);
@@ -49,3 +54,8 @@ body {
   font: 15px "Noto Sans";
   }
 
+i{
+  margin-right: 10%;
+}
+                                                       
+                                                

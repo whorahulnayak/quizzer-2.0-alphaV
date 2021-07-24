@@ -25,7 +25,7 @@
 			href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
 			rel="stylesheet"
 		/>
-
+		
 		<link
 			rel="stylesheet"
 			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -35,7 +35,7 @@
 	
 		<link rel="stylesheet" href="css/hamburgers.css" />
 		<link rel="stylesheet" href="css/student_home.css" />
-
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 		<title>Quizzer</title>
 	</head>
 <body>
@@ -77,6 +77,8 @@
 				<div class="navbar-nav">
 					<a class="nav-item nav-link active" href="welcome.php?q=3">Home</a>
 					<a class="nav-item nav-link" href="welcome.php?q=2">History</a>
+				    <a href="logout.php?q=welcome.php" class="nav-item nav-link ">
+					<i class="fas fa-sign-out-alt"></i>Log out</a>
 				</div>
 			</div>
 		</nav>
@@ -91,32 +93,32 @@
                     $uid = $_POST['uid'];
                     $result = mysqli_query($con,"SELECT * FROM quiz where eid = '$uid' ORDER BY date DESC") or die('Error');
                     echo  '<div
-			class="
-				col-sm-8
-				container-fluid
-				row
-				mx-auto
-				justify-content-center
-				text-center
-				parent2
-			"
-		>
-			<div class="cardn lboard">
-				<nav class="ladder-nav">
-					<div class="ladder-title">
-						<h3>History</h3>
-					</div>
-				</nav>
-				<table id="rankings" class="leaderboard-results" width="100%">
-					<thead>
-						<tr>
-							<th>S.N.</th>
-							<th>Topic</th>
-							<th>Total Questions</th>
-							<th>Marks</th>
-							<th>Action</th>
-						</tr>
-					</thead>';
+							class="
+								col-sm-8
+								container-fluid
+								row
+								mx-auto
+								justify-content-center
+								text-center
+								parent2
+							"
+						>
+							<div class="cardn lboard">
+								<nav class="ladder-nav">
+									<div class="ladder-title">
+										<h3>History</h3>
+									</div>
+								</nav>
+								<table id="rankings" class="leaderboard-results" width="100%">
+									<thead>
+										<tr>
+											<th>S.N.</th>
+											<th>Topic</th>
+											<th>Total Questions</th>
+											<th>Marks</th>
+											<th>Action</th>
+										</tr>
+									</thead>';
                     $c=1;
                     while($row = mysqli_fetch_array($result)) {
                         $title = $row['title'];
@@ -142,26 +144,26 @@
                 {
                    
                     echo '<div class="parent">
-			<div class="child child1">
-				<h2>Enter your quiz code:</h2>
-				<br/>
-				<form action="welcome.php?q=1&approved=1" name="form" method="POST">
-				<div class="input-group input-group-lg">
-					<input type="text" name="uid" class="form-control" />
-					
-					<input type="submit" value="start quiz" class="btn1">
-				</div>
-				</form>
-			</div>
+							<div class="child child1">
+								<h2>Enter your quiz code:</h2>
+								<br/>
+								<form action="welcome.php?q=1&approved=1" name="form" method="POST">
+								<div class="input-group input-group-lg">
+									<input type="text" name="uid" class="form-control" />
+									
+									<input type="submit" value="start quiz" class="btn1">
+								</div>
+								</form>
+							</div>
 
-			<div class="child child3">
-				<img
-					class="buddy_image"
-					src="image/undraw_online_test_gba7.svg"
-					alt=""
-				/>
-			</div>
-		</div>';
+							<div class="child child3">
+								<img
+									class="buddy_image"
+									src="image/undraw_online_test_gba7.svg"
+									alt=""
+								/>
+							</div>
+						</div>';
                 }?>
 
                 <?php
@@ -294,5 +296,6 @@
 			integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
 			crossorigin="anonymous"
 		></script>
+		
 </body>
 </html>

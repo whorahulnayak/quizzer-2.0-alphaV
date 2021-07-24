@@ -21,10 +21,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dashboard</title>
     <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-16x16.png">
+    <link href="http://fonts.cdnfonts.com/css/valorant" rel="stylesheet">
     <link  rel="stylesheet" href="css/bootstrap.min.css"/>
     <link  rel="stylesheet" href="css/bootstrap-theme.min.css"/>    
     <link rel="stylesheet" href="css/welcome.css">
-    <link  rel="stylesheet" href="css/font.css">
+    
+                
+    <!-- <link  rel="stylesheet" href="css/font.css"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap" rel="stylesheet">
@@ -42,7 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="Javascript:void(0)"><b>Online Quiz System</b></a>
+                <a class="navbar-brand" href="Javascript:void(0)"><b>Quizzer</b></a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
@@ -65,7 +68,7 @@
             <div class="col-md-12">
                 <?php if(@$_GET['q']==0)
                 {
-                   echo "<h1> WELCOME TO Admin Page!!
+                   echo "<h1 class='home-header'> HELLO Admin!!
 					</h1>";
 					
                 }
