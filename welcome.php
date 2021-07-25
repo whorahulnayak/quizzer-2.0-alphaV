@@ -111,7 +111,7 @@
 										<h3>History</h3>
 									</div>
 								</nav>
-								<table id="rankings" class="leaderboard-results" width="100%">
+								<table id="rankings" class="leaderboard-results text-center" width="100%">
 									<thead>
 										<tr>
 											<th>S.N.</th>
@@ -197,15 +197,40 @@
 								<input type="radio" name="ans" value="'.$optionid.'">'.$option.'</li>';
                         }
                         
-                        echo'</ul><button type="submit" class="btn3 btn-primary">Next</button></form></div></div>';
+                        echo'</ul><button type="submit" class="btn3 btn-primary">Next</button>
+						</form></div></div>';
                     }
 
                     if(@$_GET['q']== 'result' && @$_GET['eid']) 
                     {
                         $eid=@$_GET['eid'];
                         $q=mysqli_query($con,"SELECT * FROM history WHERE eid='$eid' AND email='$email' " );
-                        echo  '<div class="panel">
-                        <center><h1 class="title" style="color:#660033">Result</h1><center><br /><table class="table table-striped title1" style="font-size:20px;font-weight:1000;">';
+                        echo  '<div
+						class="
+							col-sm-8
+							container-fluid
+							row
+							mx-auto
+							justify-content-center
+							text-center
+							parent2
+						"
+					>
+						<div class="cardn lboard">
+							<nav class="ladder-nav">
+								<div class="ladder-title">
+									<h3>Result</h3>
+								</div>
+							</nav>
+							<table id="rankings" class="leaderboard-results text-center" width="100%">
+								<thead><tr>
+											
+								<th>Total Questions</th>
+								<th>Correct</th>
+								<th>Wrong</th>
+								<th>Score</th>
+							</tr>
+						</thead>';
 
                         while($row=mysqli_fetch_array($q) )
                         {
@@ -213,10 +238,11 @@
                             $w=$row['wrong'];
                             $r=$row['sahi'];
                             $qa=$row['level'];
-                            echo '<tr style="color:#66CCFF"><td>Total Questions</td><td>'.$qa.'</td></tr>
-                                <tr style="color:#99cc32"><td>right Answer&nbsp;<span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span></td><td>'.$r.'</td></tr> 
-                                <tr style="color:red"><td>Wrong Answer&nbsp;<span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></td><td>'.$w.'</td></tr>
-                                <tr style="color:#66CCFF"><td>Score&nbsp;<span class="glyphicon glyphicon-star" aria-hidden="true"></span></td><td>'.$s.'</td></tr>';
+                            echo '<tr style="color:#f490a9;font-weight:700"><td>'.$qa.'</td>
+							<td>'.$r.'</td>
+							<td>'.$w.'</td>
+							<td>'.$s.'</td>
+							</tr></table></div>';
                         }
                         
                     }
@@ -245,7 +271,7 @@
 										<h3>History</h3>
 									</div>
 								</nav>
-								<table id="rankings" class="leaderboard-results" width="100%">
+								<table id="rankings" class="leaderboard-results text-center" width="100%">
 									<thead>
 										<tr>
 											<th>S.N.</th>
@@ -269,7 +295,12 @@
                         while($row=mysqli_fetch_array($q23) )
                         {  $title=$row['title'];  }
                         $c++;
-                        echo '<tr><td>'.$c.'</td><td>'.$title.'</td><td>'.$qa.'</td><td>'.$r.'</td><td>'.$w.'</td><td>'.$s.'</td></tr>';
+                        echo '<tr style="color:#f490a9;font-weight:700"><td>'.$c.'</td>
+						<td>'.$title.'</td><td>'.$qa.'</td>
+						<td>'.$r.'</td>
+						<td>'.$w.'</td>
+						<td>'.$s.'</td>
+						</tr>';
                         }
                         echo'</table></div>';
                     }

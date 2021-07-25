@@ -256,7 +256,13 @@
                     if(@$_GET['q']==7) 
                     {
                         $eid = $_GET['eid'];
-
+                    //trying to download with quiz name
+                    $result = mysqli_query($con,"SELECT title FROM quiz WHERE eid= '$eid' ORDER BY date DESC") or die('Error');
+                    if(mysqli_num_rows($result) > 0)
+                    {
+                        $row = mysqli_fetch_array($result);
+                        $qname = $row['title'];
+                    }
                     //new modif
                     $result = mysqli_query($con,"SELECT * FROM history WHERE eid= '$eid' ORDER BY date DESC") or die('Error');
                     $c=1;
@@ -284,8 +290,9 @@
                      }
                      $c=0;
                      $output .= '</table>';
+                     $fn = $qname;
                      header("Content-Type:   application/vnd.ms-excel; charset=utf-8");
-                    header("Content-Disposition: attachment; filename=abc.xls");  //File name extension was wrong
+                    header("Content-Disposition: attachment; filename=$fn.xls");  //File name extension was wrong
                     header("Expires: 0");
                     header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
                     header("Cache-Control: private",false);
