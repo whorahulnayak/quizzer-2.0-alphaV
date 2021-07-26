@@ -16,52 +16,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dashboard</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-16x16.png">
-    <link href="http://fonts.cdnfonts.com/css/valorant" rel="stylesheet">
-    <link  rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link  rel="stylesheet" href="css/bootstrap-theme.min.css"/>    
-    <link rel="stylesheet" href="css/welcome.css">
-    
-                
-    <!-- <link  rel="stylesheet" href="css/font.css"> -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap" rel="stylesheet">
-    <script src="js/jquery.js" type="text/javascript"></script>
+<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+			integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+			crossorigin="anonymous"
+		/>
+
+		<link rel="stylesheet" href="css/hamburgers.css" />
+		<link rel="stylesheet" href="css/student_home.css" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+		<title>Quizzer</title>
+        <script src="js/jquery.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js"  type="text/javascript"></script>
 </head>
 
 <body>
-    <nav class="navbar navbar-default title1">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="Javascript:void(0)"><b>Quizzer</b></a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-left">
-                    <li <?php if(@$_GET['q']==0) echo'class="active"'; ?>><a href="dashboard.php?q=0">Home<span class="sr-only">(current)</span></a></li>
-                    <li <?php if(@$_GET['q']==1) echo'class="active"'; ?>><a href="dashboard.php?q=1">User</a></li>
-                    
+    
+    <!-- new navbar comes here -->
+    <nav
+			class="
+				navbar navbar-expand-lg navbar-dark
+				navcolor
+				fixed-top
+				py-0 py-md-1 py-lg-2
+			"
+		>
+			<!-- Title and Logo -->
+			<a class="navbar-brand" href="#">
+				<img
+					src="image/atom.svg"
+					width="30"
+					height="30"
+					class="d-inline-block align-top"
+					alt=""
+					loading="lazy"
+				/>
+				<span id="brand">Quizzer</span>
+			</a>
+
+			
+
+			<button
+				class="hamburger hamburger--emphatic is-valid navbar-toggler"
+				type="button"
+				data-toggle="collapse"
+				data-target="#expandme"
+			>
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</button>
+			<!-- Categories -->
+			<div class="collapse navbar-collapse" id="expandme">
+				<div class="navbar-nav">
+                <li <?php if(@$_GET['q']==0) echo'class="active"'; ?>><a class="nav-item nav-link active" href="dashboard.php?q=0">Home</a></li>
+					<li <?php if(@$_GET['q']==1) echo'class="active"'; ?>><a class="nav-item nav-link" href="dashboard.php?q=1">User</a></li>
+                
+                    <li <?php if(@$_GET['q']==4) echo'class="active"'; ?>><a class="nav-item nav-link active" href="dashboard.php?q=4">Add Quiz</a></li>
+					<li <?php if(@$_GET['q']==5) echo'class="active"'; ?>><a class="nav-item nav-link" href="dashboard.php?q=5">My Quizes</a></li>
+
+
+                
                     <li class="dropdown <?php if(@$_GET['q']==4 || @$_GET['q']==5) echo'active"'; ?>">
-                    <li><a href="dashboard.php?q=4">Add Quiz</a></li>
-                    <li><a href="dashboard.php?q=5">My Quizes</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li <?php echo''; ?> > <a href="logout1.php?q=dashboard.php"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Log out</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+				    <a href="logout1.php?q=dashboard.php" class="nav-item nav-link ">
+					<i class="fas fa-sign-out-alt"></i>Log out</a>
+				</div>
+			</div>
+		</nav>
 
     <div class="container">
         <div class="row">
@@ -78,17 +109,48 @@
                     if(@$_GET['q']==1) 
                     {
                         $result = mysqli_query($con,"SELECT * FROM user") or die('Error');
-                        echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
-                        <tr><td><center><b>S.N.</b></center></td><td><center><b>Name</b></center></td><td><center><b>Email</b></center></td><td><center><b>Action</b></center></td></tr>';
-                        $c=1;
+                        // echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
+                        // <tr><td><center><b>S.N.</b></center></td><td><center><b>Name</b></center></td><td><center><b>Email</b></center></td><td><center><b>Action</b></center></td></tr>';
+                        echo '<div
+						class="
+							col-sm-8
+							container-fluid
+							row
+							mx-auto
+							justify-content-center
+							text-center
+							parent2
+						"
+					>
+						<div class="cardn lboard">
+							<nav class="ladder-nav">
+								<div class="ladder-title">
+									<h3>Students</h3>
+								</div>
+							</nav>
+							<table id="rankings" class="leaderboard-results text-center" width="100%;">
+								<thead><tr>
+											
+								<th>S.N</th>
+								<th>Name</th>
+								<th>Email</th>
+								<th>Action</th>
+							</tr>
+						</thead>';
+                         $c=1;
                         while($row = mysqli_fetch_array($result)) 
                         {
                             $name = $row['name'];
                             $email = $row['email'];
-                            echo '<tr><td><center>'.$c++.'</center></td><td><center>'.$name.'</center></td><td><center>'.$email.'</center></td><td><center><a title="Delete User" href="update.php?demail='.$email.'"><b><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></b></a></center></td></tr>';
+                            echo '<tr style="color:#f490a9;font-weight:500">
+                            <td>'.$c++.'</td>
+                            <td>'.$name.'</td>
+                            <td>'.$email.'</td>
+                            <td><a title="Delete User" href="update.php?demail='.$email.'"><b><i class="fas fa-trash"></i></b></a></td>
+                            </tr></table></div>';
                         }
                         $c=0;
-                        echo '</table></div></div>';
+                        // echo '</div>';
                     }
                 ?>
 
