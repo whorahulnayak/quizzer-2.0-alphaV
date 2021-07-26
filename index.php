@@ -11,7 +11,7 @@
 	<body>
 		<div class="parent">
 			<div class="child1 child-side">
-				<img src="image/avatar.svg" class="dp" />
+				<img src="image/teacher.svg" class="dp" />
 				<h2>Faculty</h2>
 				<input type="submit" class="btn1" value="Login" onclick="window.location.href = 'admin.php';"/>
 				<input type="submit" class="btn1" value="Sign Up" onclick="window.location.href = 'register1.php';" />
