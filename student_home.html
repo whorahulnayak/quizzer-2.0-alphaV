@@ -26,7 +26,7 @@ session_start();
 			integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
 			crossorigin="anonymous"
 		/>
-	
+
 		<link rel="stylesheet" href="css/hamburgers.css" />
 		<link rel="stylesheet" href="css/student_home.css" />
 
@@ -55,8 +55,6 @@ session_start();
 				/>
 				<span id="brand">Quizzer</span>
 			</a>
-
-			
 
 			<button
 				class="hamburger hamburger--emphatic is-valid navbar-toggler"
@@ -91,27 +89,42 @@ session_start();
 			</div>
 		</div> -->
 
-		<div class="parent">
-			<div class="child child1">
-				<h2>Enter your quiz code:</h2>
-				<br/>
-				<form action="welcome.php?q=1&approved=1"  method="POST">
-				<div class="input-group input-group-lg">
-					<input type="text" class="form-control" />
-					<!-- <button class="btn1" type="button">Start Quiz</button> -->
-					<input type="submit" value="start quiz" class="btn1s">
+		<div class=" col-sm-8 container-fluid row mx-auto justify-content-center
+		text-center parent2 " >
+		<div class="cardn lboard">
+			<nav class="ladder-nav"></nav>
+				<div class="ladder-title">
+					<h2 class="h2-title">History</h2>
 				</div>
-				</form>
-			</div>
+			</nav>
+			<table
+				id="rankings"
+				class="leaderboard-results text-center table"
+				width="100%">
+				<thead class="thead-light">
+					<tr>
+						<th scope="col">S.N.</th>
+						<th scope="col">Name</th>
+						<th scope="col">Email</th>
+						<th scope="col">Action</th>
+					</tr>
+				</thead>
 
-			<div class="child child3">
-				<img
-					class="buddy_image"
-					src="image/undraw_online_test_gba7.svg"
-					alt=""
-				/>
-			</div>
+				<tr>
+					<td>'.$c++.'</td>
+					<td>'.$name.'</td>
+					<td>'.$email.'</td>
+					<td>
+						<a title="Delete User" href="update.php?demail='.$email.'"
+							><b><i class="fas fa-trash"></i></b
+						></a>
+					</td>
+				</tr>
+			</table>
 		</div>
+		
+<td><a title="Delete User" href="update.php?demail='.$email.'"><b><i class="fas fa-trash"></i></b></a></td>
+
 
 		<script>
 			// Look for .hamburger

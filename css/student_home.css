@@ -155,7 +155,7 @@ tr:last-of-type td:last-of-type {
 	/* background: #16191b; */
 }
 .leaderboard-results tbody tr {
-	color: #fff;
+	/* color: #fff; */
 }
 .leaderboard-results tbody tr:first-child {
 	color: #16191b;
@@ -167,11 +167,11 @@ tr:last-of-type td:last-of-type {
 }
 .leaderboard-results tbody tr:first-child span {
 	background: #16ffba;
-	color: white;
+	/* color: white; */
 }
 .leaderboard-results tbody tr span {
 	/* background: #16191b; */
-	color: #fff;
+	/* color: #fff; */
 }
 
 tr:nth-child(even) {
@@ -195,6 +195,23 @@ td {
 
 .cardn {
 	width: 100%;
+	background: #1a1a1a;
+	border-radius: 10px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 150px;
+	box-shadow: 0 14px 26px rgba(0, 0, 0, 0.04);
+	transition: all 0.3s ease-out;
+	text-decoration: none;
+	margin-bottom: 50px;
+	color: white;
+}
+
+.cardnadmin {
 	background: #1a1a1a;
 	border-radius: 10px;
 	overflow: hidden;

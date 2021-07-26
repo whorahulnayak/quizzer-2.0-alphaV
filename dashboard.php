@@ -52,7 +52,7 @@
 			"
 		>
 			<!-- Title and Logo -->
-			<a class="navbar-brand" href="#">
+			<a class="navbar-brand" href="dashboard.php?q=0">
 				<img
 					src="image/atom.svg"
 					width="30"
@@ -80,7 +80,7 @@
 			<div class="collapse navbar-collapse" id="expandme">
 				<div class="navbar-nav">
                 <li <?php if(@$_GET['q']==0) echo'class="active"'; ?>><a class="nav-item nav-link active" href="dashboard.php?q=0">Home</a></li>
-					<li <?php if(@$_GET['q']==1) echo'class="active"'; ?>><a class="nav-item nav-link" href="dashboard.php?q=1">User</a></li>
+					<li <?php if(@$_GET['q']==1) echo'class="active"'; ?>><a class="nav-item nav-link" href="dashboard.php?q=1">Users</a></li>
                 
                     <li <?php if(@$_GET['q']==4) echo'class="active"'; ?>><a class="nav-item nav-link active" href="dashboard.php?q=4">Add Quiz</a></li>
 					<li <?php if(@$_GET['q']==5) echo'class="active"'; ?>><a class="nav-item nav-link" href="dashboard.php?q=5">My Quizes</a></li>
@@ -97,63 +97,58 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+
+<!-- Home Page -->
                 <?php if(@$_GET['q']==0)
                 {
                    echo "<h1 class='home-header'> HELLO Admin!!
 					</h1>";
 					
                 }
-
                 ?>
+
+<!-- Users -->
                 <?php 
                     if(@$_GET['q']==1) 
                     {
                         $result = mysqli_query($con,"SELECT * FROM user") or die('Error');
                         // echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
                         // <tr><td><center><b>S.N.</b></center></td><td><center><b>Name</b></center></td><td><center><b>Email</b></center></td><td><center><b>Action</b></center></td></tr>';
-                        echo '<div
-						class="
-							col-sm-8
-							container-fluid
-							row
-							mx-auto
-							justify-content-center
-							text-center
-							parent2
-						"
-					>
-						<div class="cardn lboard">
-							<nav class="ladder-nav">
-								<div class="ladder-title">
-									<h3>Students</h3>
-								</div>
-							</nav>
-							<table id="rankings" class="leaderboard-results text-center" width="100%;">
-								<thead><tr>
-											
-								<th>S.N</th>
-								<th>Name</th>
-								<th>Email</th>
-								<th>Action</th>
-							</tr>
-						</thead>';
+                        echo '<div class=" col-sm-8 container-fluid row mx-auto justify-content-center text-center parent2 ">
+							<div class="cardnadmin lboard">
+								<nav class="ladder-nav">
+									<div class="ladder-title">
+										<h2 class="h2-title">Users</h2>
+									</div>
+								</nav>
+								<table id="rankings" class="leaderboard-results text-center table">
+									<thead class="thead-light">
+										<tr>
+											<th scope="col">S.N.</th>
+											<th scope="col">Name</th>
+											<th scope="col">Email</th>
+											<th scope="col">Action</th>
+								
+										</tr>
+									</thead>';
                          $c=1;
                         while($row = mysqli_fetch_array($result)) 
                         {
                             $name = $row['name'];
                             $email = $row['email'];
-                            echo '<tr style="color:#f490a9;font-weight:500">
+                            echo '<tr>
                             <td>'.$c++.'</td>
                             <td>'.$name.'</td>
                             <td>'.$email.'</td>
                             <td><a title="Delete User" href="update.php?demail='.$email.'"><b><i class="fas fa-trash"></i></b></a></td>
-                            </tr></table></div>';
+                            </tr>';
                         }
                         $c=0;
-                        // echo '</div>';
+                        echo '</table></div></div>';
                     }
                 ?>
 
+<!-- Add quiz -->
                 <?php
                     if(@$_GET['q']==4 && !(@$_GET['step']) ) 
                     {
@@ -201,6 +196,7 @@
                     }
                 ?>
 
+<!-- After adding quiz -->
                 <?php
                     if(@$_GET['q']==4 && (@$_GET['step'])==2 ) 
                     {
@@ -265,6 +261,7 @@
                     }
                 ?>
 
+<!-- My Quizzes -->
                 <?php 
                     if(@$_GET['q']==5) 
                     {
@@ -287,6 +284,8 @@
                         echo '</table></div></div>';
                     }
                 ?>
+
+<!-- View Scores -->
                 <?php 
                     if(@$_GET['q']==6) 
                     {
@@ -314,6 +313,8 @@
                         </div></div>';
                     }
                 ?>
+
+<!-- Download Score -->
                 <?php 
                     if(@$_GET['q']==7) 
                     {
@@ -361,8 +362,6 @@
                      echo $output;
                     }
                    }
-
-
                 ?>
             </div>
         </div>
