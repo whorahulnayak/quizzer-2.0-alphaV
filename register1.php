@@ -53,7 +53,7 @@
 			</div>
 			<div class="login-content">
 			<form method="post" action="register1.php" enctype="multipart/form-data">
-					<img src="image/avatar.svg" />
+					<img src="image/teacher.svg" />
 					<h2 class="title">Faculty Signup</h2>
 					
 					<div class="input-div one">

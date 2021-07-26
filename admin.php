@@ -62,7 +62,7 @@
 			</div>
 			<div class="login-content">
 			<form method="post" action="admin.php" enctype="multipart/form-data">
-					<img src="image/avatar.svg" />
+					<img src="image/teacher.svg" />
 					<h2 class="title">Admin Login</h2>
 					
 					<div class="input-div one">
