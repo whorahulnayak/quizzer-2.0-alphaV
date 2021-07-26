@@ -284,7 +284,7 @@
                                     <h2 class="h2-title">My Quizes</h2>
                                 </div>
                             </nav>
-                            <table id="rankings" class="leaderboard-results text-center table" width="100%">
+                            <table id="rankings" class="leaderboard-results text-center table">
                                 <thead class="thead-light">
                                     <tr>
                                         <th scope="col">S.N.</th>
@@ -308,8 +308,8 @@
                             <td>'.$total.'</td>
                             <td>'.$sahi*$total.'</td>
                             <td>'.$eid.'</td>
-                            <td><b><a href="dashboard.php?q=6&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:green;color:black"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>View scores</b></span></a></b></center></td>
-                            <td><b><a href="update.php?q=rmquiz&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:red;color:black"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Remove</b></span></a></b></center></td></tr>';
+                            <td><a href="dashboard.php?q=6&eid='.$eid.'" class="btn sub1"><b>View scores</b></a></center></td>
+                            <td><a href="update.php?q=rmquiz&eid='.$eid.'" class="btn sub2"><b>Remove</b></a></td></tr>';
                         }
                         $c=0;
                         echo '</table></div></div>';

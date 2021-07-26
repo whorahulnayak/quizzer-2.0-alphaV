@@ -503,9 +503,18 @@ ul {
 .container {
 	width: 50%;
 }
-.fa-trash{
-	color:#16191b;
+.fa-trash {
+	color: #16191b;
 }
-.fa-trash:hover{
-	color:#4c5656;
+.fa-trash:hover {
+	color: #4c5656;
+}
+
+.sub1 {
+	background: #16ffba;
+}
+
+.sub2 {
+	background: #f03156;
+	color: white;
 }
