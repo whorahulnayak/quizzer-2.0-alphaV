@@ -49,7 +49,7 @@
 			"
 		>
 			<!-- Title and Logo -->
-			<a class="navbar-brand" href="#">
+			<a class="navbar-brand" href="welcome.php?q=3">
 				<img
 					src="image/atom.svg"
 					width="30"
@@ -108,17 +108,17 @@
 							<div class="cardn lboard">
 								<nav class="ladder-nav">
 									<div class="ladder-title">
-										<h3>History</h3>
+										<h2 class="h2-title">Quiz History</h2>
 									</div>
 								</nav>
-								<table id="rankings" class="leaderboard-results text-center" width="100%">
-									<thead>
+								<table id="rankings" class="leaderboard-results text-center table" width="100%">
+									<thead class="thead-light">
 										<tr>
-											<th>S.N.</th>
-											<th>Topic</th>
-											<th>Total </th>
-											<th>Marks</th>
-											<th>Action</th>
+											<th scope="col">S.N.</th>
+											<th scope="col">Topic</th>
+											<th scope="col">Total </th>
+											<th scope="col">Marks</th>
+											<th scope="col">Action</th>
 										</tr>
 									</thead>';
                     $c=1;
@@ -219,16 +219,16 @@
 						<div class="cardn lboard">
 							<nav class="ladder-nav">
 								<div class="ladder-title">
-									<h3>Result</h3>
+									<h2 class="h2-title">Result</h2>
 								</div>
 							</nav>
-							<table id="rankings" class="leaderboard-results text-center" width="100%">
-								<thead><tr>
+							<table id="rankings" class="leaderboard-results text-center table" width="100%">
+								<thead class="thead-light"><tr>
 											
-								<th>Total Questions</th>
-								<th>Correct</th>
-								<th>Wrong</th>
-								<th>Score</th>
+								<th scope="col">Total Questions</th>
+								<th scope="col">Correct</th>
+								<th scope="col">Wrong</th>
+								<th scope="col">Score</th>
 							</tr>
 						</thead>';
 
@@ -238,7 +238,7 @@
                             $w=$row['wrong'];
                             $r=$row['sahi'];
                             $qa=$row['level'];
-                            echo '<tr style="color:#f490a9;font-weight:700"><td>'.$qa.'</td>
+                            echo '<tr><td>'.$qa.'</td>
 							<td>'.$r.'</td>
 							<td>'.$w.'</td>
 							<td>'.$s.'</td>
@@ -268,18 +268,18 @@
 							<div class="cardn lboard">
 								<nav class="ladder-nav">
 									<div class="ladder-title">
-										<h3>History</h3>
+										<h2 class="h2-title">History</h2>
 									</div>
 								</nav>
-								<table id="rankings" class="leaderboard-results text-center" width="100%">
-									<thead>
+								<table id="rankings" class="leaderboard-results text-center table" width="100%">
+									<thead class="thead-light">
 										<tr>
-											<th>S.N.</th>
-											<th>Quiz</th>
-											<th>Questions</th>
-											<th>Right</th>
-											<th>Wrong</th>
-											<th>Score</th>
+											<th scope="col">S.N.</th>
+											<th scope="col">Quiz</th>
+											<th scope="col">Questions</th>
+											<th scope="col">Right</th>
+											<th scope="col">Wrong</th>
+											<th scope="col">Score</th>
 										</tr>
 									</thead>';
                         $c=0;
@@ -295,7 +295,7 @@
                         while($row=mysqli_fetch_array($q23) )
                         {  $title=$row['title'];  }
                         $c++;
-                        echo '<tr style="color:#f490a9;font-weight:700"><td>'.$c.'</td>
+                        echo '<tr><td>'.$c.'</td>
 						<td>'.$title.'</td><td>'.$qa.'</td>
 						<td>'.$r.'</td>
 						<td>'.$w.'</td>

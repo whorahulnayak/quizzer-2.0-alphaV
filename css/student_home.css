@@ -109,6 +109,19 @@ table {
 	border-collapse: collapse;
 }
 
+th:first-of-type {
+	border-top-left-radius: 10px;
+}
+th:last-of-type {
+	border-top-right-radius: 10px;
+}
+tr:last-of-type td:first-of-type {
+	border-bottom-left-radius: 10px;
+}
+tr:last-of-type td:last-of-type {
+	border-bottom-right-radius: 10px;
+}
+
 .parenttable {
 	display: flex;
 	flex-direction: row;
@@ -131,21 +144,21 @@ table {
 }
 .leaderboard-results tbody td {
 	padding: 10px 25px;
-	background: #16191b;
+	/* background: #16191b; */
 	font-size: 16px;
-	border-bottom: 5px solid #16191b;
+	/* border-bottom: 5px solid #16191b; */
 }
 .leaderboard-results tbody td:nth-of-type(7) {
 	font-weight: bold;
 }
 .leaderboard-results tbody tr:hover td {
-	background: #16191b;
+	/* background: #16191b; */
 }
 .leaderboard-results tbody tr {
 	color: #fff;
 }
 .leaderboard-results tbody tr:first-child {
-	color: #16ffba;
+	color: #16191b;
 }
 .leaderboard-results tbody span {
 	font-weight: bold;
@@ -157,7 +170,7 @@ table {
 	color: white;
 }
 .leaderboard-results tbody tr span {
-	background: #16191b;
+	/* background: #16191b; */
 	color: #fff;
 }
 
@@ -190,7 +203,7 @@ td {
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-	top:150px;
+	top: 150px;
 	box-shadow: 0 14px 26px rgba(0, 0, 0, 0.04);
 	transition: all 0.3s ease-out;
 	text-decoration: none;
@@ -230,7 +243,7 @@ td {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	background: #16ffba;
+	/* background: #16ffba; */
 	padding: 10px 25px;
 }
 
@@ -293,7 +306,7 @@ a:hover {
 }
 
 .lboard {
-	background-color: #16ffba;
+	background-color: #0d161e;
 }
 
 .circleout {
@@ -345,8 +358,14 @@ h2 {
 	text-align: left;
 }
 
+.h2-title {
+	background-color: #f03156;
+	padding: 10px;
+	border-radius: 10px;
+}
+
 h3 {
-	color: #0d161e;
+	color: #ef476f;
 }
 
 .question {
