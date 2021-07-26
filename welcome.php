@@ -144,7 +144,8 @@
                 <?php if(@$_GET['q']==3) 
                 {
                    
-                    echo '<div class="parent">
+                    echo '
+					<div class="parent">
 							<div class="child child1">
 								<h2>Enter your quiz code:</h2>
 								<br/>

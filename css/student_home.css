@@ -368,7 +368,9 @@ body {
 	font-family: "Poppins", sans-serif;
 }
 h1 {
-	color: #ef476f;
+	padding-top: 50px;
+	padding-bottom: 25px;
+	/* color: #ef476f; */
 }
 
 h2 {
@@ -517,4 +519,9 @@ ul {
 .sub2 {
 	background: #f03156;
 	color: white;
+}
+
+
+.adminimg{
+	width: 700px;
 }

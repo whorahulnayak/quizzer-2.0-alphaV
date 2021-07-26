@@ -36,6 +36,13 @@
 		<link rel="stylesheet" href="css/student_home.css" />
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 		<title>Quizzer</title>
+
+        <!-- Custom fonts for this template-->
+   
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+
+
         <script src="js/jquery.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js"  type="text/javascript"></script>
 </head>
@@ -101,8 +108,114 @@
 <!-- Home Page -->
                 <?php if(@$_GET['q']==0)
                 {
-                   echo "<h1 class='home-header'> HELLO Admin!!
-					</h1>";
+                    $users = mysqli_query($con,"SELECT * FROM user") or die('Error');
+                    $quiz = mysqli_query($con,"SELECT * FROM quiz WHERE owned= '$email' ORDER BY date DESC") or die('Error');
+                    $u=0;
+                    $q=0;
+                    while($row = mysqli_fetch_array($users)) 
+                        {
+                            $u++;
+                        }
+
+                    while($row = mysqli_fetch_array($quiz)) 
+                        {
+                            $q++;
+                        }    
+
+                   echo 
+                   '<div class="container">
+                   <h1> Welcome to your Dashbaord, Admin
+					</h1>
+                    <div class="row">
+                        
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                            <a href="dashboard.php?q=4">
+                                <div class="card-body">
+                                
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col">
+                                               
+                                                    <div class="h5 mb-0 font-weight-bold text-info">New Quiz</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+
+                        
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                            <a href="dashboard.php?q=5">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                </div>
+                                            <div class="h5 mb-0 font-weight-bold text-warning">My Quizzes</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Number of quizzes</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">'.$q.' quizzes</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                       
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Number of students</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">'.$u.' students</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="row">
+	<img class="adminimg mx-auto" src="image/undraw_teacher_35j2.svg" alt="">
+</div>
+
+                </div>';
 					
                 }
                 ?>
