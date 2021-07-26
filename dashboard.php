@@ -262,13 +262,40 @@
                 ?>
 
 <!-- My Quizzes -->
-                <?php 
+<?php 
                     if(@$_GET['q']==5) 
                     {
                         $email = $_SESSION['email'];
                         $result = mysqli_query($con,"SELECT * FROM quiz WHERE owned= '$email' ORDER BY date DESC") or die('Error');
-                        echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
-                        <tr><td><center><b>S.N.</b></center></td><td><center><b>Topic</b></center></td><td><center><b>Total questions</b></center></td><td><center><b>Marks</b></center></td><td><center><b>Quiz ID</b></center></td><td><center><b>view scores</b></center></td><td><center><b>Action</b></center></td></tr>';
+                    echo '<div
+                        class="
+                            col-sm-8
+                            container-fluid
+                            row
+                            mx-auto
+                            justify-content-center
+                            text-center
+                            parent2
+                        "
+                    >
+                        <div class="cardnadmin lboard">
+                            <nav class="ladder-nav">
+                                <div class="ladder-title">
+                                    <h2 class="h2-title">My Quizes</h2>
+                                </div>
+                            </nav>
+                            <table id="rankings" class="leaderboard-results text-center table" width="100%">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">S.N.</th>
+                                        <th scope="col">Topic</th>
+                                        <th scope="col">Total Questions</th>
+                                        <th scope="col">Marks</th>
+                                        <th scope="col">Quiz ID</th>
+                                        <th scope="col">View Scores</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>';
                         $c=1;
                         while($row = mysqli_fetch_array($result)) {
                             $title = $row['title'];
@@ -276,9 +303,13 @@
                             $sahi = $row['sahi'];
                             $eid = $row['eid'];
 
-                            echo '<tr><td><center>'.$c++.'</center></td><td><center>'.$title.'</center></td><td><center>'.$total.'</center></td><td><center>'.$sahi*$total.'</center></td><td><center>'.$eid.'</center></td>
-                            <td><center><b><a href="dashboard.php?q=6&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:green;color:black"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>View scores</b></span></a></b></center></td>
-                            <td><center><b><a href="update.php?q=rmquiz&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:red;color:black"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Remove</b></span></a></b></center></td></tr>';
+                            echo '<tr><td>'.$c++.'</td>
+                            <td>'.$title.'</td>
+                            <td>'.$total.'</td>
+                            <td>'.$sahi*$total.'</td>
+                            <td>'.$eid.'</td>
+                            <td><b><a href="dashboard.php?q=6&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:green;color:black"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>View scores</b></span></a></b></center></td>
+                            <td><b><a href="update.php?q=rmquiz&eid='.$eid.'" class="pull-right btn sub1" style="margin:0px;background:red;color:black"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;<span class="title1"><b>Remove</b></span></a></b></center></td></tr>';
                         }
                         $c=0;
                         echo '</table></div></div>';
@@ -291,15 +322,37 @@
                     {
                         $eid = $_GET['eid'];
                         $result = mysqli_query($con,"SELECT * FROM history WHERE eid= '$eid' ORDER BY date DESC") or die('Error');
-                        echo  '<div class="panel"><div class="table-responsive"><table class="table table-striped title1">
-                        <tr><td><center><b>S.N.</b></center></td><td><center><b>Email</b></center></td><td><center><b>Total Score</b></center></td>';
+                        echo '<div
+                        class="
+                            col-sm-8
+                            container-fluid
+                            row
+                            mx-auto
+                            justify-content-center
+                            text-center
+                            parent2
+                        "
+                    >
+                        <div class="cardnadmin lboard">
+                            <nav class="ladder-nav">
+                                <div class="ladder-title">
+                                    <h2 class="h2-title">Performance</h2>
+                                </div>
+                            </nav>
+                            <table id="rankings" class="leaderboard-results text-center table" width="100%">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">S.N.</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Total Score</th>
+                                       
+                                    </tr>
+                                </thead>';
                         $c=1;
 
                         while($row = mysqli_fetch_array($result)) {
                             $email = $row['email'];
                             $total = $row['score'];
-                            // $sahi = $row['sahi'];
-                            // $eid = $row['eid'];
 
                             echo '<tr><td><center>'.$c++.'</center></td><td><center>'.$email.'</center></td><td><center>'.$total.'</center></td>';  
                       }
@@ -366,5 +419,56 @@
             </div>
         </div>
     </div>
+    <script>
+			// Look for .hamburger
+			var hamburger = document.querySelector(".hamburger");
+			// On click
+			hamburger.addEventListener("click", function () {
+				// Toggle class "is-active"
+				hamburger.classList.toggle("is-active");
+				// Do something else, like open/close menu
+			});
+			var svg = document.querySelector(".navbar-brand");
+			var brand = document.querySelector("#brand");
+
+			console.log(scroll);
+			var scr = window.addEventListener("scroll", function () {
+				var scroll = window.scrollY;
+				if (scroll != 0) {
+					brand.classList.add("disappear");
+				} else {
+					brand.classList.remove("disappear");
+				}
+			});
+			$(window).scroll(function () {
+				var scrollTop = $(this).scrollTop();
+				$("#brand").css({
+					opacity: function () {
+						var elementHeight = $(this).height();
+						return 1 - (elementHeight - scrollTop) / elementHeight;
+						// adding transition here
+					},
+				});
+			});
+		</script>
+
+		<script
+			script
+			src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+			crossorigin="anonymous"
+		></script>
+		<script
+			script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+			integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+			crossorigin="anonymous"
+		></script>
 </body>
 </html>
