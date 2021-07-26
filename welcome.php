@@ -238,7 +238,8 @@
                             $w=$row['wrong'];
                             $r=$row['sahi'];
                             $qa=$row['level'];
-                            echo '<tr style="color:#f490a9;font-weight:700"><td>'.$qa.'</td>
+                            echo '<tr style="color:#f490a9;font-weight:700">
+							<td>'.$qa.'</td>
 							<td>'.$r.'</td>
 							<td>'.$w.'</td>
 							<td>'.$s.'</td>

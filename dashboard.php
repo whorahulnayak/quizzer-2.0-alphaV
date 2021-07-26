@@ -142,15 +142,15 @@
                         {
                             $name = $row['name'];
                             $email = $row['email'];
-                            echo '<tr style="color:#f490a9;font-weight:700">
+                            echo '<tr style="color:#f490a9;font-weight:500">
                             <td>'.$c++.'</td>
                             <td>'.$name.'</td>
                             <td>'.$email.'</td>
-                            <td><a title="Delete User" href="update.php?demail='.$email.'"><b><i class="fas fa-trash"></i></b></a></center></td>
-                            </tr>';
+                            <td><a title="Delete User" href="update.php?demail='.$email.'"><b><i class="fas fa-trash"></i></b></a></td>
+                            </tr></table></div>';
                         }
                         $c=0;
-                        echo '</table></div></div>';
+                        // echo '</div>';
                     }
                 ?>
 
