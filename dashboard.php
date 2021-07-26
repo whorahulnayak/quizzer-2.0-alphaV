@@ -128,7 +128,7 @@
 									<h3>Students</h3>
 								</div>
 							</nav>
-							<table id="rankings" class="leaderboard-results text-center" width="100%">
+							<table id="rankings" class="leaderboard-results text-center" width="100%;">
 								<thead><tr>
 											
 								<th>S.N</th>
@@ -142,7 +142,12 @@
                         {
                             $name = $row['name'];
                             $email = $row['email'];
-                            echo '<tr style="color:#f490a9;font-weight:700"><td><center>'.$c++.'</center></td><td><center>'.$name.'</center></td><td><center>'.$email.'</center></td><td><center><a title="Delete User" href="update.php?demail='.$email.'"><b><i class="fas fa-trash"></i></b></a></center></td></tr>';
+                            echo '<tr style="color:#f490a9;font-weight:700">
+                            <td>'.$c++.'</td>
+                            <td>'.$name.'</td>
+                            <td>'.$email.'</td>
+                            <td><a title="Delete User" href="update.php?demail='.$email.'"><b><i class="fas fa-trash"></i></b></a></center></td>
+                            </tr>';
                         }
                         $c=0;
                         echo '</table></div></div>';
