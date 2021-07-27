@@ -265,7 +265,7 @@
                 <?php
                     if(@$_GET['q']==4 && !(@$_GET['step']) ) 
                     {
-                        echo '<div class="row justify-content-center"><span class="title1" style="margin-left:40%;font-size:30px;color:#fff;"><b>Enter Quiz Details</b></span><br /><br />
+                        echo '<div class="row justify-content-center"><span class="title1" style="margin-left:25%;font-size:30px;color:#fff;"><b>Enter Quiz Details</b></span><br /><br />
                         <div class="col-md-3"></div><div class="col-md-6">   
                         <form class="form-horizontal title1" name="form" action="update.php?q=addquiz"  method="POST">
                             <fieldset>
@@ -300,7 +300,7 @@
                                 <div class="form-group">
                                     <label class="col-md-12 control-label" for=""></label>
                                     <div class="col-md-12"> 
-                                        <input  type="submit" style="margin-left:45%" class="btn btn-primary" value="Submit" class="btn btn-primary"/>
+                                        <input  type="submit" style="margin-left:5%" class="btn btn-primary" value="Submit" class="btn btn-primary"/>
                                     </div>
                                 </div>
 
