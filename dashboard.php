@@ -124,7 +124,7 @@
 
                    echo 
                    '<div class="container">
-                   <h1> Welcome to your Dashbaord, Admin
+                   <h1> Welcome to your Dashboard, Admin
 					</h1>
                     <div class="row">
                         
@@ -265,7 +265,7 @@
                 <?php
                     if(@$_GET['q']==4 && !(@$_GET['step']) ) 
                     {
-                        echo '<div class="row"><span class="title1" style="margin-left:40%;font-size:30px;color:#fff;"><b>Enter Quiz Details</b></span><br /><br />
+                        echo '<div class="row justify-content-center"><span class="title1" style="margin-left:40%;font-size:30px;color:#fff;"><b>Enter Quiz Details</b></span><br /><br />
                         <div class="col-md-3"></div><div class="col-md-6">   
                         <form class="form-horizontal title1" name="form" action="update.php?q=addquiz"  method="POST">
                             <fieldset>
